@@ -170,7 +170,8 @@ export const Navigation: React.FC = () => {
         </div>
       </nav>
 
-      {/* Scroll Progress Indicator */}
+      {/* Remove Scroll Progress Indicator */}
+      {/*
       <div className="fixed top-0 left-0 right-0 z-[60] h-1 bg-black/20">
         <div 
           className="h-full bg-gradient-to-r from-purple-500 to-cyan-500 transition-all duration-300 ease-out"
@@ -179,6 +180,7 @@ export const Navigation: React.FC = () => {
           }}
         />
       </div>
+      */}
     </>
   );
 };

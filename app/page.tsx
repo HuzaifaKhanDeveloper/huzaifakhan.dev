@@ -8,7 +8,7 @@ import { ServicesSection } from '@/components/sections/ServicesSection';
 import { TechStackSection } from '@/components/sections/TechStackSection';
 import { AchievementsSection } from '@/components/sections/AchievementsSection';
 import { ContactSection } from '@/components/sections/ContactSection';
-import { SupportSection } from '@/components/sections/SupportSection';
+import { SupportReactorSection } from '@/components/sections/SupportReactorSection';
 import { Navigation } from '@/components/ui/Navigation';
 import { ParticleBackground } from '@/components/effects/ParticleBackground';
 
@@ -26,7 +26,7 @@ export default function Home() {
         <TechStackSection />
         <AchievementsSection />
         <ContactSection />
-        <SupportSection />
+        <SupportReactorSection />
       </main>
     </div>
   );
