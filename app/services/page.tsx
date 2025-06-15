@@ -4,8 +4,9 @@ import React, { useState } from 'react';
 import { ServiceCard } from '@/components/services/ServiceCard';
 import { CustomQuoteForm } from '@/components/services/CustomQuoteForm';
 import { servicesData, getAllCategories } from '@/data/servicesData';
-import { Search, Filter, Grid, List, ArrowLeft, Users, Award, Clock, TrendingUp, Star, GitBranch } from 'lucide-react';
+import { Search, Filter, Grid, List, ArrowLeft, Users, Award, Clock, TrendingUp } from 'lucide-react'; // Removed Star, GitBranch as they weren't used in the provided code
 import Link from 'next/link';
+import { ParticleBackground } from '@/components/effects/ParticleBackground';
 
 export default function ServicesPage() {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -13,7 +14,7 @@ export default function ServicesPage() {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [sortBy, setSortBy] = useState('name');
 
-  // Add state for quote form
+  // State for quote form
   const [isQuoteFormOpen, setIsQuoteFormOpen] = useState(false);
   const [selectedService, setSelectedService] = useState('');
 
@@ -29,7 +30,10 @@ export default function ServicesPage() {
     .sort((a, b) => {
       switch (sortBy) {
         case 'price':
-          return parseInt(a.startingPrice.replace(/[^0-9]/g, '')) - parseInt(b.startingPrice.replace(/[^0-9]/g, ''));
+          // Safely parse integers, handling potential non-numeric characters
+          const priceA = parseInt(a.startingPrice.replace(/[^0-9]/g, '') || '0');
+          const priceB = parseInt(b.startingPrice.replace(/[^0-9]/g, '') || '0');
+          return priceA - priceB;
         case 'name':
           return a.title.localeCompare(b.title);
         default:
@@ -50,30 +54,8 @@ export default function ServicesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#06001B] text-white relative overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Adjusted colors and opacity to match the theme */}
-        <div className="absolute top-20 left-10 w-16 h-16 border-2 border-purple-700/30 rotate-45 animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-12 h-12 border-2 border-cyan-600/30 rotate-12 animate-bounce"></div>
-        <div className="absolute bottom-20 left-20 w-20 h-20 border-2 border-purple-600/20 rotate-45"></div>
-        <div className="absolute bottom-40 right-10 w-8 h-8 border-2 border-cyan-500/40 rotate-12"></div>
-        <div className="absolute top-1/2 left-1/4 w-6 h-6 bg-purple-700/20 rounded-full animate-ping"></div>
-        <div className="absolute top-1/3 right-1/3 w-4 h-4 bg-cyan-600/30 rounded-full animate-pulse"></div>
-        <div className="absolute bottom-1/3 left-1/2 w-3 h-3 bg-purple-600/40 rounded-full"></div>
-
-        {/* Hexagon shapes - matched colors to the theme */}
-        <div className="absolute top-32 left-1/3 w-24 h-24 transform rotate-12">
-          <svg viewBox="0 0 100 100" className="w-full h-full">
-            <polygon points="50,5 85,25 85,75 50,95 15,75 15,25" fill="none" stroke="rgba(139, 92, 246, 0.15)" strokeWidth="2"/>
-          </svg>
-        </div>
-        <div className="absolute bottom-32 right-1/4 w-16 h-16 transform rotate-45">
-          <svg viewBox="0 0 100 100" className="w-full h-full">
-            <polygon points="50,5 85,25 85,75 50,95 15,75 15,25" fill="none" stroke="rgba(34, 211, 238, 0.2)" strokeWidth="2"/>
-          </svg>
-        </div>
-      </div>
+    <div className="min-h-screen bg-transparent text-white relative overflow-hidden">
+      <ParticleBackground />
 
       {/* Professional Header */}
       <header className="relative z-10 bg-[#06001B]/90 backdrop-blur-sm border-b border-gray-800/50">
@@ -95,7 +77,7 @@ export default function ServicesPage() {
         </div>
       </header>
 
-      {/* Hero Section */}
+      {/* Hero Section (Services Page specific) */}
       <section className="relative z-10 py-24 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-5xl mx-auto">
@@ -113,7 +95,7 @@ export default function ServicesPage() {
               Enterprise-grade solutions that drive innovation and deliver results.
             </p>
 
-            {/* GitHub-style Stats */}
+            {/* Business Stats (replaces GitHub stats from HomePage hero) */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20">
               <div className="bg-gray-900/40 backdrop-blur-sm border border-gray-800/50 rounded-xl p-6 hover:border-cyan-500/30 transition-all group">
                 <div className="flex items-center justify-center w-12 h-12 mx-auto mb-4 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-lg group-hover:scale-110 transition-transform">
