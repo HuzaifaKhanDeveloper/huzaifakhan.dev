@@ -8,9 +8,10 @@ import { ServiceData } from '@/data/servicesData';
 interface ServiceCardProps {
   service: ServiceData;
   featured?: boolean;
+  onRequestQuote?: () => void;
 }
 
-export const ServiceCard: React.FC<ServiceCardProps> = ({ service, featured = false }) => {
+export const ServiceCard: React.FC<ServiceCardProps> = ({ service, featured = false, onRequestQuote }) => {
   return (
     <div className={`group bg-black/60 backdrop-blur-sm border border-gray-700 rounded-xl overflow-hidden transition-all duration-500 hover:scale-105 hover:border-cyan-500/50 hover:shadow-lg hover:shadow-cyan-500/20 ${
       featured ? 'ring-2 ring-cyan-500/30' : ''
@@ -85,12 +86,22 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, featured = fa
         </div>
 
         {/* CTA Button */}
-        <Link href={`/services/${service.slug}`}>
-          <button className="w-full flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white py-3 px-4 rounded-lg transition-all duration-300 hover:scale-105 group">
-            <span className="font-medium">Learn More</span>
-            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
-          </button>
-        </Link>
+        <div className="flex flex-col gap-2">
+          <Link href={`/services/${service.slug}`}>
+            <button className="w-full flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white py-3 px-4 rounded-lg transition-all duration-300 hover:scale-105 group">
+              <span className="font-medium">Learn More</span>
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
+            </button>
+          </Link>
+          {onRequestQuote && (
+            <button
+              onClick={onRequestQuote}
+              className="w-full flex items-center justify-center space-x-2 border border-cyan-500 text-cyan-400 hover:bg-cyan-500/10 py-3 px-4 rounded-lg transition-all duration-300"
+            >
+              <span className="font-medium">Get Quote</span>
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

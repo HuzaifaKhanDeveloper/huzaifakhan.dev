@@ -127,19 +127,19 @@ export const AchievementsSection: React.FC = () => {
   ];
 
   const renderTrophies = () => (
-    <div className="grid md:grid-cols-2 gap-8">
+    <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
       {trophies.map((trophy, index) => (
         <div
           key={index}
-          className="bg-black/60 backdrop-blur-sm border border-gray-700 rounded-xl p-6 hover:border-yellow-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-yellow-500/20 group"
+          className="bg-black/60 backdrop-blur-sm border border-gray-700 rounded-xl p-4 sm:p-6 hover:border-yellow-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-yellow-500/20 group"
         >
-          <div className="flex items-start space-x-4">
-            <div className={`w-12 h-12 bg-gradient-to-r ${trophy.color} rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
-              <Trophy size={24} className="text-white" />
+          <div className="flex flex-col sm:flex-row items-start space-y-3 sm:space-y-0 sm:space-x-4">
+            <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${trophy.color} rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 self-center sm:self-start`}>
+              <Trophy size={20} className="sm:w-6 sm:h-6 text-white" />
             </div>
             
-            <div className="flex-1">
-              <h3 className="text-xl font-bold text-white mb-1 group-hover:text-yellow-400 transition-colors duration-300">
+            <div className="flex-1 text-center sm:text-left">
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-1 group-hover:text-yellow-400 transition-colors duration-300">
                 {trophy.title}
               </h3>
               <p className="text-yellow-400 font-semibold text-sm mb-2">{trophy.event}</p>
@@ -147,7 +147,7 @@ export const AchievementsSection: React.FC = () => {
                 {trophy.description}
               </p>
               
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-2">
                 <span className="text-gray-400 text-xs flex items-center">
                   <Calendar size={14} className="mr-1" />
                   {trophy.date}
@@ -164,18 +164,18 @@ export const AchievementsSection: React.FC = () => {
   );
 
   const renderCertifications = () => (
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
       {certifications.map((cert, index) => (
         <div
           key={index}
-          className="bg-black/60 backdrop-blur-sm border border-gray-700 rounded-xl p-6 hover:border-blue-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20 group"
+          className="bg-black/60 backdrop-blur-sm border border-gray-700 rounded-xl p-4 sm:p-6 hover:border-blue-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20 group"
         >
           <div className="text-center mb-4">
-            <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
-              <Award size={32} className="text-white" />
+            <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
+              <Award size={28} className="sm:w-8 sm:h-8 text-white" />
             </div>
             
-            <h3 className="text-lg font-bold text-white mb-1 group-hover:text-blue-400 transition-colors duration-300">
+            <h3 className="text-base sm:text-lg font-bold text-white mb-1 group-hover:text-blue-400 transition-colors duration-300 leading-tight">
               {cert.title}
             </h3>
             <p className="text-blue-400 font-semibold text-sm">{cert.issuer}</p>
@@ -198,7 +198,7 @@ export const AchievementsSection: React.FC = () => {
                 {cert.skills.map((skill, skillIndex) => (
                   <span
                     key={skillIndex}
-                    className="bg-blue-500/20 text-blue-400 px-2 py-1 rounded-full text-xs"
+                    className="bg-blue-500/20 text-blue-400 px-2 py-1 rounded-full text-xs leading-tight"
                   >
                     {skill}
                   </span>
@@ -212,19 +212,19 @@ export const AchievementsSection: React.FC = () => {
   );
 
   const renderAchievements = () => (
-    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
       {achievements.map((achievement, index) => (
         <div
           key={index}
-          className="bg-black/60 backdrop-blur-sm border border-gray-700 rounded-xl p-6 hover:border-green-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20 text-center group"
+          className="bg-black/60 backdrop-blur-sm border border-gray-700 rounded-xl p-4 sm:p-6 hover:border-green-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20 text-center group"
         >
-          <div className="text-4xl font-bold text-green-400 mb-2 group-hover:scale-110 transition-transform duration-300">
+          <div className="text-3xl sm:text-4xl font-bold text-green-400 mb-2 group-hover:scale-110 transition-transform duration-300">
             {achievement.metric}
           </div>
-          <h3 className="text-white font-semibold text-lg mb-2 group-hover:text-green-400 transition-colors duration-300">
+          <h3 className="text-white font-semibold text-base sm:text-lg mb-2 group-hover:text-green-400 transition-colors duration-300 leading-tight">
             {achievement.label}
           </h3>
-          <p className="text-gray-400 text-sm">
+          <p className="text-gray-400 text-sm leading-relaxed">
             {achievement.description}
           </p>
         </div>
@@ -233,33 +233,33 @@ export const AchievementsSection: React.FC = () => {
   );
 
   const renderBlog = () => (
-    <div className="grid md:grid-cols-2 gap-8">
+    <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
       {blogPosts.map((post, index) => (
         <article
           key={index}
-          className="bg-black/60 backdrop-blur-sm border border-gray-700 rounded-xl p-6 hover:border-purple-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 group cursor-pointer"
+          className="bg-black/60 backdrop-blur-sm border border-gray-700 rounded-xl p-4 sm:p-6 hover:border-purple-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 group cursor-pointer"
         >
-          <div className="flex items-start justify-between mb-3">
-            <h3 className="text-lg font-bold text-white group-hover:text-purple-400 transition-colors duration-300 leading-tight">
+          <div className="flex items-start justify-between mb-3 gap-2">
+            <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-purple-400 transition-colors duration-300 leading-tight flex-1">
               {post.title}
             </h3>
-            <ExternalLink size={16} className="text-gray-400 group-hover:text-purple-400 transition-colors duration-300 flex-shrink-0 ml-2" />
+            <ExternalLink size={16} className="text-gray-400 group-hover:text-purple-400 transition-colors duration-300 flex-shrink-0" />
           </div>
           
           <p className="text-gray-300 text-sm leading-relaxed mb-4">
             {post.excerpt}
           </p>
           
-          <div className="flex items-center justify-between text-xs text-gray-400 mb-3">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between text-xs text-gray-400 mb-3 gap-1">
             <span>{post.date}</span>
             <span>{post.readTime}</span>
           </div>
           
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-1 sm:gap-2">
             {post.tags.map((tag, tagIndex) => (
               <span
                 key={tagIndex}
-                className="bg-purple-500/20 text-purple-400 px-2 py-1 rounded-full text-xs"
+                className="bg-purple-500/20 text-purple-400 px-2 py-1 rounded-full text-xs leading-tight"
               >
                 {tag}
               </span>
@@ -286,35 +286,36 @@ export const AchievementsSection: React.FC = () => {
   };
 
   return (
-    <section id="achievements" className="py-20 px-4 relative">
+    <section id="achievements" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 relative">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
             <span className="bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent">
               Trophy Chamber
             </span>
           </h2>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed px-4">
             A collection of milestones, achievements, and contributions to the blockchain ecosystem. 
             Each trophy represents dedication to excellence.
           </p>
         </div>
 
         {/* Tab Navigation */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12 px-2">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center space-x-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+              className={`flex items-center space-x-1 sm:space-x-2 px-3 sm:px-6 py-2 sm:py-3 rounded-full font-semibold transition-all duration-300 text-sm sm:text-base ${
                 activeTab === tab.id
                   ? 'bg-gradient-to-r from-yellow-500 to-red-600 text-white shadow-lg'
                   : 'bg-black/40 text-gray-300 border border-gray-600 hover:border-yellow-500/50 hover:text-yellow-400'
               }`}
             >
-              <tab.icon size={18} />
-              <span>{tab.label}</span>
+              <tab.icon size={16} className="sm:w-5 sm:h-5" />
+              <span className="hidden xs:inline sm:inline">{tab.label}</span>
+              <span className="xs:hidden sm:hidden">{tab.label.split(' ')[0]}</span>
             </button>
           ))}
         </div>

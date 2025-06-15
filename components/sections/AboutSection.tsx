@@ -65,53 +65,53 @@ export const AboutSection: React.FC = () => {
   }, [quotes.length]);
 
   return (
-    <section id="about" className="py-20 px-4 relative">
+    <section id="about" className="py-12 sm:py-16 lg:py-20 px-4 relative">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
             <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
               The Architect's Log
             </span>
           </h2>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed px-4">
             5+ years of full-stack development, 3+ years in blockchain. 
             Crafting secure, scalable solutions for the decentralized future.
           </p>
         </div>
 
         {/* Rotating Quote */}
-        <div className="text-center mb-16">
-          <div className="bg-black/40 backdrop-blur-sm border border-cyan-500/30 rounded-lg p-6 max-w-2xl mx-auto">
-            <p className="text-cyan-400 text-xl font-mono italic transition-all duration-1000">
+        <div className="text-center mb-12 sm:mb-16">
+          <div className="bg-black/40 backdrop-blur-sm border border-cyan-500/30 rounded-lg p-4 sm:p-6 max-w-2xl mx-auto">
+            <p className="text-cyan-400 text-base sm:text-xl font-mono italic transition-all duration-1000 leading-relaxed">
               "{quotes[currentQuote]}"
             </p>
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           {/* Timeline */}
-          <div className="space-y-8">
-            <h3 className="text-2xl font-bold text-cyan-400 mb-8 flex items-center">
-              <Calendar className="mr-3" />
+          <div className="space-y-6 sm:space-y-8">
+            <h3 className="text-xl sm:text-2xl font-bold text-cyan-400 mb-6 sm:mb-8 flex items-center">
+              <Calendar className="mr-2 sm:mr-3 w-5 h-5 sm:w-6 sm:h-6" />
               Evolution Timeline
             </h3>
             
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               {timeline.map((item, index) => (
-                <div key={index} className="flex items-start space-x-4 group">
-                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <item.icon size={20} className="text-white" />
+                <div key={index} className="flex items-start space-x-3 sm:space-x-4 group">
+                  <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <item.icon size={16} className="text-white sm:w-5 sm:h-5" />
                   </div>
                   
-                  <div className="flex-1 bg-black/40 backdrop-blur-sm border border-gray-700 rounded-lg p-4 group-hover:border-cyan-500/50 transition-all duration-300">
-                    <div className="flex items-center justify-between mb-2">
-                      <h4 className="text-lg font-semibold text-white">{item.title}</h4>
-                      <span className="text-cyan-400 font-mono text-sm bg-cyan-400/10 px-2 py-1 rounded">
+                  <div className="flex-1 bg-black/40 backdrop-blur-sm border border-gray-700 rounded-lg p-3 sm:p-4 group-hover:border-cyan-500/50 transition-all duration-300">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2 gap-1 sm:gap-0">
+                      <h4 className="text-base sm:text-lg font-semibold text-white leading-tight">{item.title}</h4>
+                      <span className="text-cyan-400 font-mono text-xs sm:text-sm bg-cyan-400/10 px-2 py-1 rounded self-start sm:self-auto">
                         {item.year}
                       </span>
                     </div>
-                    <p className="text-gray-300 text-sm">{item.description}</p>
+                    <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">{item.description}</p>
                   </div>
                 </div>
               ))}
@@ -119,13 +119,13 @@ export const AboutSection: React.FC = () => {
           </div>
 
           {/* Skills */}
-          <div className="space-y-8">
-            <h3 className="text-2xl font-bold text-purple-400 mb-8 flex items-center">
-              <Zap className="mr-3" />
+          <div className="space-y-6 sm:space-y-8">
+            <h3 className="text-xl sm:text-2xl font-bold text-purple-400 mb-6 sm:mb-8 flex items-center">
+              <Zap className="mr-2 sm:mr-3 w-5 h-5 sm:w-6 sm:h-6" />
               Core Competencies
             </h3>
             
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               {skills.map((skill, index) => (
                 <div
                   key={index}
@@ -134,11 +134,11 @@ export const AboutSection: React.FC = () => {
                   onMouseLeave={() => setHoveredSkill(null)}
                 >
                   <div className="flex justify-between items-center mb-2">
-                    <span className="text-white font-semibold">{skill.name}</span>
-                    <span className="text-gray-400 font-mono text-sm">{skill.level}%</span>
+                    <span className="text-white font-semibold text-sm sm:text-base">{skill.name}</span>
+                    <span className="text-gray-400 font-mono text-xs sm:text-sm">{skill.level}%</span>
                   </div>
                   
-                  <div className="w-full bg-gray-800 rounded-full h-3 overflow-hidden">
+                  <div className="w-full bg-gray-800 rounded-full h-2 sm:h-3 overflow-hidden">
                     <div
                       className={`h-full bg-gradient-to-r ${skill.color} transition-all duration-1000 ease-out ${
                         hoveredSkill === skill.name ? 'animate-pulse' : ''
@@ -154,15 +154,53 @@ export const AboutSection: React.FC = () => {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 gap-4 pt-8">
-              <div className="bg-black/40 backdrop-blur-sm border border-green-500/30 rounded-lg p-4 text-center group hover:border-green-400/60 transition-all duration-300">
-                <div className="text-2xl font-bold text-green-400">20+</div>
-                <div className="text-gray-400 text-sm">Projects Completed</div>
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 pt-6 sm:pt-8">
+              <div className="bg-black/40 backdrop-blur-sm border border-green-500/30 rounded-lg p-3 sm:p-4 text-center group hover:border-green-400/60 transition-all duration-300">
+                <div className="text-xl sm:text-2xl font-bold text-green-400">20+</div>
+                <div className="text-gray-400 text-xs sm:text-sm">Projects Completed</div>
               </div>
               
-              <div className="bg-black/40 backdrop-blur-sm border border-blue-500/30 rounded-lg p-4 text-center group hover:border-blue-400/60 transition-all duration-300">
-                <div className="text-2xl font-bold text-blue-400">10+</div>
-                <div className="text-gray-400 text-sm">Smart Contracts Audited</div>
+              <div className="bg-black/40 backdrop-blur-sm border border-blue-500/30 rounded-lg p-3 sm:p-4 text-center group hover:border-blue-400/60 transition-all duration-300">
+                <div className="text-xl sm:text-2xl font-bold text-blue-400">10+</div>
+                <div className="text-gray-400 text-xs sm:text-sm">Smart Contracts Audited</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile-Only Additional Stats */}
+        <div className="mt-8 sm:mt-12 lg:hidden">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4">
+            <div className="bg-black/40 backdrop-blur-sm border border-purple-500/30 rounded-lg p-3 sm:p-4 text-center hover:border-purple-400/60 transition-all duration-300">
+              <div className="text-xl sm:text-2xl font-bold text-purple-400">5+</div>
+              <div className="text-gray-400 text-xs sm:text-sm">Years Experience</div>
+            </div>
+            
+            <div className="bg-black/40 backdrop-blur-sm border border-yellow-500/30 rounded-lg p-3 sm:p-4 text-center hover:border-yellow-400/60 transition-all duration-300">
+              <div className="text-xl sm:text-2xl font-bold text-yellow-400">3+</div>
+              <div className="text-gray-400 text-xs sm:text-sm">Blockchain Years</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Achievement Highlights - Mobile */}
+        <div className="mt-8 sm:mt-12 lg:hidden">
+          <div className="bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/30 rounded-xl p-4 sm:p-6">
+            <h4 className="text-lg sm:text-xl font-bold text-cyan-400 mb-3 sm:mb-4 text-center">
+              Key Achievements
+            </h4>
+            <div className="space-y-2 sm:space-y-3 text-center">
+              <div className="text-gray-300 text-sm sm:text-base">
+                <span className="text-green-400 font-semibold">✓</span> Full-Stack Development Mastery
+              </div>
+              <div className="text-gray-300 text-sm sm:text-base">
+                <span className="text-blue-400 font-semibold">✓</span> Smart Contract Security Expert
+              </div>
+              <div className="text-gray-300 text-sm sm:text-base">
+                <span className="text-purple-400 font-semibold">✓</span> Blockchain Project Leadership
+              </div>
+              <div className="text-gray-300 text-sm sm:text-base">
+                <span className="text-yellow-400 font-semibold">✓</span> Open Source Contributor
               </div>
             </div>
           </div>
